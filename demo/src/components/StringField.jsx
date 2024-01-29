@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap';
+import { FormGroup, FormLabel, FormControl, FormText } from 'react-bootstrap';
 
 const alphaRegex = /^$|[A-Z]+$/i;
 
@@ -18,12 +18,12 @@ class StringField extends React.Component {
   }
 
   render() {
-    const { label, name, help, ...rest } = this.props;
+    const { label, name, help } = this.props;
     return (
       <FormGroup controlId={name}>
-        <ControlLabel>{label}</ControlLabel>
+        <FormLabel>{label}</FormLabel>
         <FormControl componentClass="input" name={name} />
-        {help && <HelpBlock>{help}</HelpBlock>}
+        {help && <FormText>{help}</FormText>}
       </FormGroup>
     );
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup,Radio } from 'react-bootstrap';
+import { FormGroup, FormCheck } from 'react-bootstrap';
 
 class CheckboxField extends React.Component {
 
@@ -12,7 +12,7 @@ class CheckboxField extends React.Component {
     const checkboxes = [];
     this.props.checkboxes.forEach(function loop(checkbox, index) {
       checkboxes.push(
-        <Radio key={index} {...checkbox}>{checkbox.label}</Radio>
+        <FormCheck key={index} {...checkbox}>{checkbox.label}</FormCheck>
       );
     });
     return checkboxes;

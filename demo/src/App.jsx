@@ -1,10 +1,8 @@
-import ReactDOM from 'react-dom';
 import ContactForm from './components/ContactForm';
 import StringField from './components/StringField';
 import CheckboxField from './components/CheckboxField';
 
-// If a package dependency: import ReactJsonSchema from 'react-json-schema';
-import ReactJsonSchema from '../lib/ReactJsonSchema';
+import ReactJsonSchema from 'react-json-schema';
 
 const welcomeSchema = {
   'component': 'h2',
@@ -12,8 +10,7 @@ const welcomeSchema = {
   'text': 'Hello World!'
 };
 
-const welcomeBanner = new ReactJsonSchema();
-ReactDOM.render(welcomeBanner.parseSchema(welcomeSchema), document.getElementById('welcome-banner'));
+const WelcomeBannerComponent = new ReactJsonSchema().parseSchema(welcomeSchema)
 
 const formSchema = {
   'component': 'ContactForm',
@@ -45,5 +42,11 @@ const formSchema = {
 const componentMap = { ContactForm, StringField, CheckboxField };
 const contactForm = new ReactJsonSchema();
 contactForm.setComponentMap(componentMap);
+const ContactFormComponent = contactForm.parseSchema(formSchema)
 
-ReactDOM.render(contactForm.parseSchema(formSchema), document.getElementById('json-react-schema'));
+export default function App() {
+  return <div>
+    {WelcomeBannerComponent}
+    {ContactFormComponent}
+  </div>
+}
