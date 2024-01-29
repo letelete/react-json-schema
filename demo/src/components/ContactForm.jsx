@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Grid, Col, Row } from 'react-bootstrap';
+import { Button, Col, Row } from 'react-bootstrap';
 
 class ContactForm extends React.Component {
 
@@ -14,7 +14,7 @@ class ContactForm extends React.Component {
 
   render() {
     return (
-      <Grid>
+      <div>
         <Row>
           <Col md={6} mdOffset={3} xs={12}>
             <h3>{this.props.title}</h3>
@@ -24,7 +24,7 @@ class ContactForm extends React.Component {
             </form>
           </Col>
         </Row>
-      </Grid>
+      </div>
     );
   }
 }
